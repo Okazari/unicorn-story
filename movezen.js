@@ -67,6 +67,7 @@ const shape = new mojs.Shape({
   angle: { [-180] : 0, easing: 'quart.inout' },
   fill: { 'white': '#b31835'},
   duration:  1000,
+  radius: 300,
   isShowStart: true,
   onComplete (isForward, isYoyo) {
     console.log()
@@ -84,8 +85,9 @@ const letterStep2 = {
 const k = new mojs.Shape({
   shape: 'k',
   fill: 'none',
-  strokeDashoffset: { '-240%' : '0%' },
-  strokeDasharray: '240%',
+  radius: 300,
+  strokeDashoffset: { '-245%' : '0%' },
+  strokeDasharray: '245%',
   strokeLineCap: 'round',
   stroke: 'white',
   duration:  3000,
@@ -95,6 +97,7 @@ const k = new mojs.Shape({
 const n = new mojs.Shape({
   shape: 'n',
   fill: 'none',
+  radius: 300,
   strokeLineCap: 'round',
   strokeDashoffset: { '-300%' : '0%' },
   strokeDasharray: '300%',
@@ -106,6 +109,7 @@ const n = new mojs.Shape({
 const z = new mojs.Shape({
   shape: 'z',
   fill: 'none',
+  radius: 300,
   strokeLineCap: 'round',
   strokeDashoffset: { '-215%' : '0%' },
   strokeDasharray: '215%',
