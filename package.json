@@ -1,0 +1,18 @@
+{
+  "name": "moveZen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mo-js": "^0.288.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}
