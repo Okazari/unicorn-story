@@ -1,3 +1,47 @@
+// Tree
+class Tree extends mojs.CustomShape {
+  getShape() { return `<path
+        d="M 50.00,16.06
+           C 50.00,16.06 31.00,41.94 31.00,41.94
+             33.00,43.00 33.00,43.00 37.00,44.00
+             37.00,44.00 22.00,63.00 22.00,63.00
+             25.13,64.94 25.13,64.94 28.94,66.00
+             28.94,66.00 14.00,84.00 14.00,84.00
+             27.75,92.06 73.44,92.06 86.94,84.06
+             86.94,84.06 72.00,66.06 72.00,66.06
+             75.94,65.06 75.94,65.06 78.94,63.00
+             78.94,63.00 63.94,44.00 63.94,44.00
+             68.00,43.06 68.00,43.06 69.88,41.94
+             69.88,41.94 50.00,16.06 50.00,16.06 Z" />`}
+}
+
+mojs.addShape('tree', Tree)
+const shiftCurve = mojs.easing.path( 'M0,100 C50,100 50,100 50,50 C50,0 50,0 100,0' );
+
+const backgroundCircle = new mojs.Shape({
+  shape: 'circle',
+  fill: '#78db7b',
+  radius: {0: 1000, easing: 'cubic.in'},
+  isShowStart:  true,
+  duration: 1000,
+  onComplete () {
+    tree.play()
+  },
+}).play()
+
+const tree = new mojs.Shape({
+  shape: 'tree',
+  fill: '#227725',
+  duration:  1000,
+  radius: 300,
+  radiusX: { 0: 300, easing: 'quart.inout'},
+  y: -50,
+  onComplete () {
+    zshape.play()
+  },
+})
+
+// Logo
 class ZShape extends mojs.CustomShape {
   getShape() { return `<path 
         d="M 12.00,1.91
@@ -56,18 +100,22 @@ class Z extends mojs.CustomShape {
              65.64,79.18 64.09,56.27 64.09,56.27 Z" />`}
 }
 
-mojs.addShape('shape', ZShape)
+mojs.addShape('zshape', ZShape)
 mojs.addShape('k', K)
 mojs.addShape('n', N)
 mojs.addShape('z', Z)
 
-const shape = new mojs.Shape({
-  shape: 'shape',
+const logoRadius = 30
+const logoY = -260
+const logoX = 3
+const letterDuration = 2000
+const zshape = new mojs.Shape({
+  shape: 'zshape',
   scale: { 0 : 1, easing: 'quart.inout' },
   angle: { [-180] : 0, easing: 'quart.inout' },
   fill: { 'white': '#b31835'},
   duration:  1000,
-  radius: 300,
+  radius: logoRadius,
   isShowStart: true,
   onComplete (isForward, isYoyo) {
     console.log()
@@ -75,7 +123,9 @@ const shape = new mojs.Shape({
     n.play()
     z.play()
   },
-}).play()
+  y: logoY,
+  x: logoX,
+})
 
 const letterStep2 = {
   fill: { 'none' : 'white'},
@@ -85,38 +135,56 @@ const letterStep2 = {
 const k = new mojs.Shape({
   shape: 'k',
   fill: 'none',
-  radius: 300,
-  strokeWidth: 3,
+  radius: logoRadius,
+  strokeWidth: 0.8,
   strokeDashoffset: { '-245%' : '0%' },
   strokeDasharray: '245%',
   strokeLineCap: 'round',
   stroke: 'white',
-  duration:  3000,
-  isShowStart: true,
+  y: logoY,
+  x: logoX,
+  duration: letterDuration,
 }).then(letterStep2)
 
 const n = new mojs.Shape({
   shape: 'n',
   fill: 'none',
-  radius: 300,
-  strokeWidth: 3,
+  radius: logoRadius,
+  strokeWidth: 0.8,
   strokeLineCap: 'round',
   strokeDashoffset: { '-300%' : '0%' },
   strokeDasharray: '300%',
   stroke: 'white',
-  duration:  3000,
-  isShowStart: true,
+  y: logoY,
+  x: logoX,
+  duration: letterDuration,
 }).then(letterStep2)
 
 const z = new mojs.Shape({
   shape: 'z',
   fill: 'none',
-  radius: 300,
-  strokeWidth: 3,
+  radius: logoRadius,
+  strokeWidth: 0.8,
   strokeLineCap: 'round',
   strokeDashoffset: { '-215%' : '0%' },
   strokeDasharray: '215%',
   stroke: 'white',
-  duration:  3000,
-  isShowStart: true,
+  y: logoY,
+  x: logoX,
+  duration: letterDuration,
 }).then(letterStep2)
+
+var bouncyEasing = mojs.easing.path('M0,100 C6.50461245,96.8525391 12.6278439,88.3497543 16.6678547,0 C16.6678547,-1.79459817 31.6478577,115.871587 44.1008572,0 C44.1008572,-0.762447191 54.8688736,57.613472 63.0182497,0 C63.0182497,-0.96434046 70.1500549,29.0348701 76.4643231,0 C76.4643231,0 81.9085007,16.5050125 85.8902733,0 C85.8902733,-0.762447191 89.4362183,8.93311024 92.132216,0 C92.132216,-0.156767385 95.0157166,4.59766248 96.918051,0 C96.918051,-0.156767385 98.7040751,1.93815588 100,0');
+
+const ball = new mojs.Shape({
+  shape: 'circle',
+  fill: '#b31835',
+  radius: 20,
+  isShowStart: true,
+  duration: 1500,
+  x: -70,
+  onUpdate: function (progress) {
+    let bounceProgress = mojs.easing.bounce.out(progress);
+    ball.tune({ y: bounceProgress*200 - 200})
+  }
+}).play()
