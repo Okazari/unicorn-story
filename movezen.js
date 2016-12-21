@@ -1,13 +1,3 @@
-console.error('HERE BITCH !!!!!!!!!!!!!!!!!!!!!!!!!!!! ',window.callPhantom)
-coucou = "bla"
-window.toto = "titi"
-widow.isReady = false
-setTimeout(() => {
-  console.error('HERE BITCH !!!!!!!!!!!!!!!!!!!!!!!!!!!! ',window.callPhantom)
-  window.isReady = true;
-  window.callPhantom({ isReady: 'ouech ma gueule' }); 
-  alert({ isReady: 'ouech ma gueule' });
- }, 5000);
 
 
 // Tree
