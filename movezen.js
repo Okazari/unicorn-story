@@ -1,3 +1,5 @@
+setTimeout(() => window.isReady = true, 1000)
+
 // Tree
 class Tree extends mojs.CustomShape {
   getShape() { return `<path
