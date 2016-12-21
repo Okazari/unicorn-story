@@ -1,4 +1,11 @@
-setTimeout(() => window.isReady = true, 1000)
+console.error(window.callPhantom)
+setTimeout(() => {
+  console.error(window.callPhantom)
+	 if (typeof window.callPhantom === 'function') {
+		 window.callPhantom({ isReady: 'ouech ma gueule' });
+	 }
+ }, 5000);
+
 
 // Tree
 class Tree extends mojs.CustomShape {
