@@ -1,6 +1,6 @@
-console.error(window.callPhantom)
+console.error('HERE BITCH !!!!!!!!!!!!!!!!!!!!!!!!!!!! ',window.callPhantom)
 setTimeout(() => {
-  console.error(window.callPhantom)
+  console.error('HERE BITCH !!!!!!!!!!!!!!!!!!!!!!!!!!!! ',window.callPhantom)
 	 if (typeof window.callPhantom === 'function') {
 		 window.callPhantom({ isReady: 'ouech ma gueule' });
 	 }
