@@ -55,7 +55,15 @@ const eye = new mojs.Shape({
   y: -70,
   radiusY: { 0: 13 },
   onComplete() {
-    this.replayBackward(),
-    setTimeout(() => this.replay(), 1000)
+    console.log('totot')
+    eye.tune({
+      duration: 100,
+      radiusY: { 13: 1 },
+      isShowStart: true,
+      delay: 5000,
+    }).then({
+      radiusY: { 1: 13 },
+    })
+    eye.replay()
   },
 })
