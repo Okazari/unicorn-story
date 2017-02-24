@@ -1,3 +1,5 @@
+const UNICORN_OFFSET_Y = -10
+
 class Body extends mojs.CustomShape {
   getShape() { return `<path
     d="M 61.94,43.06
@@ -64,6 +66,15 @@ mojs.addShape('tail', Tail)
 mojs.addShape('horn', Horn)
 
 
+const horn = new mojs.Shape({
+  shape: 'horn',
+  fill: 'aquamarine',
+  radius: 200,
+  duration: 1500,
+  y: { [100 + UNICORN_OFFSET_Y]: UNICORN_OFFSET_Y },
+  x: { '-40': 0 }
+})
+
 const body = new mojs.Shape({
   shape: 'body',
   stroke: 'white',
@@ -74,12 +85,13 @@ const body = new mojs.Shape({
   isShowStart: true,
   radius: 200,
   top: '50%',
-  y: -10,
+  y: UNICORN_OFFSET_Y,
 }).then({
   fill: { 'none': 'white'},
   duration: 500,
   onComplete() {
     eye.play()
+    horse.play()
   },
 }).play()
 
@@ -89,45 +101,45 @@ const eye = new mojs.Shape({
   radius: 13,
   duration: 500,
   x: 115,
-  y: -70,
+  y: -60 + UNICORN_OFFSET_Y,
   radiusY: { 0: 13 },
   onComplete() {
-    console.log('totot')
     eye.tune({
       duration: 100,
       radiusY: { 13: 1 },
       isShowStart: true,
-      delay: 5000,
+      delay: 2000,
     }).then({
+      duration: 100,
       radiusY: { 1: 13 },
     })
     eye.replay()
   },
 })
 
-const horn = new mojs.Shape({
-  shape: 'horn',
-  fill: 'aquamarine',
-  radius: 200,
-  duration: 1500,
-  y: -10,
-  isShowStart: true,
-})
-
 const hair = new mojs.Shape({
   shape: 'hair',
   fill: 'lavenderblush',
   radius: 200,
-  duration: 1500,
-  y: -10,
-  isShowStart: true,
+  duration: 1000,
+  y: { '-800' : UNICORN_OFFSET_Y },
+  easing: mojs.easing.bounce.out,
 })
 
 const tail = new mojs.Shape({
   shape: 'tail',
   fill: 'pink',
   radius: 200,
-  duration: 1500,
+  duration: 1000,
   y: -10,
-  isShowStart: true,
+  x: { '-800': 0 },
+  easing: mojs.easing.bounce.out,
 })
+
+const horse = new mojs.Timeline({
+  onComplete() {
+    horn.play()
+  }
+})
+.add(hair)
+.add(tail)
