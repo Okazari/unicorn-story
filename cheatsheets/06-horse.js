@@ -59,27 +59,9 @@ class Tail extends mojs.CustomShape {
          10.30,73.83 4.83,67.52 7.09,62.65 Z" />`}
 }
 
-class Horn extends mojs.CustomShape {
-  getShape() { return `<path
-    d="M 90.65,15.04
-       C 91.61,15.65 84.09,30.17 83.74,30.22
-         81.52,30.43 79.30,29.26 78.74,28.09
-         78.78,28.00 89.70,14.43 90.65,15.04 Z" />`}
-}
-
 mojs.addShape('body', Body)
 mojs.addShape('hair', Hair)
 mojs.addShape('tail', Tail)
-mojs.addShape('horn', Horn)
-
-const horn = new mojs.Shape({
-  shape: 'horn',
-  fill: 'aquamarine',
-  radius: 200,
-  duration: 1500,
-  y: { 100: 0 },
-  x: { '-40': 0 }
-})
 
 const body = new mojs.Shape({
   shape: 'body',
@@ -87,13 +69,15 @@ const body = new mojs.Shape({
   stroke: 'white',
   radius: 200,
   duration: 2000,
-  strokeDasharray: '220',
+  strokeDasharray: 220,
   strokeDashoffset: { '-220': 0, easing: 'linear.none' }
 }).then({
   fill: { 'none': 'white' },
   duration: 1000,
   onComplete() {
-    horse.play()
+    eye.play()
+    hair.play()
+    tail.play()
   }
 })
 
@@ -104,18 +88,6 @@ const eye = new mojs.Shape({
   x: 115,
   y: -60,
   radiusY: { 0: 13 },
-  onComplete() {
-    eye.tune({
-      duration: 100,
-      radiusY: { 13: 1 },
-      isShowStart: true,
-      delay: 2000,
-    }).then({
-      duration: 100,
-      radiusY: { 1: 13 },
-    })
-    eye.replay()
-  }
 })
 
 const hair = new mojs.Shape({
@@ -135,35 +107,3 @@ const tail = new mojs.Shape({
   easing: mojs.easing.bounce.out,
   fill: 'pink'
 })
-
-const horse = new mojs.Timeline({
-  onComplete() {
-    horn.play()
-  }
-})
-.add(hair)
-.add(tail)
-.add(eye)
-
-const burst = new mojs.Burst({
-  left: 0,
-  top: 0,
-  radius: { 4: 19 },
-  angle: 45,
-  children: {
-    shape: 'line',
-    radius: 3,
-    scale: 1,
-    stroke: '#FD7932',
-    strokeDasharray: '100%',
-    strokeDashoffset: { '-100%' : '100%' },
-    duration: 700,
-    easing: 'quad.out',
-  }
-});
-
-document.addEventListener( 'click', function (e) {
-  burst
-    .tune({ x: e.pageX, y: e.pageY })
-    .replay();
-} );
