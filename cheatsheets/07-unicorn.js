@@ -87,7 +87,7 @@ const body = new mojs.Shape({
   stroke: 'white',
   radius: 200,
   duration: 2000,
-  strokeDasharray: '220',
+  strokeDasharray: 220,
   strokeDashoffset: { '-220': 0, easing: 'linear.none' }
 }).then({
   fill: { 'none': 'white' },
@@ -104,18 +104,6 @@ const eye = new mojs.Shape({
   x: 115,
   y: -60,
   radiusY: { 0: 13 },
-  onComplete() {
-    eye.tune({
-      duration: 100,
-      radiusY: { 13: 1 },
-      isShowStart: true,
-      delay: 2000,
-    }).then({
-      duration: 100,
-      radiusY: { 1: 13 },
-    })
-    eye.replay()
-  }
 })
 
 const hair = new mojs.Shape({
@@ -144,26 +132,3 @@ const horse = new mojs.Timeline({
 .add(hair)
 .add(tail)
 .add(eye)
-
-const burst = new mojs.Burst({
-  left: 0,
-  top: 0,
-  radius: { 4: 19 },
-  angle: 45,
-  children: {
-    shape: 'line',
-    radius: 3,
-    scale: 1,
-    stroke: '#FD7932',
-    strokeDasharray: '100%',
-    strokeDashoffset: { '-100%' : '100%' },
-    duration: 700,
-    easing: 'quad.out',
-  }
-});
-
-document.addEventListener( 'click', function (e) {
-  burst
-    .tune({ x: e.pageX, y: e.pageY })
-    .replay();
-} );

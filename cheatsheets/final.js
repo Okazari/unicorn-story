@@ -1,12 +1,4 @@
-const backgroundCircle = new mojs.Shape({
-  shape:'circle',
-  radius: {0: 300},
-  duration: 1000,
-  fill: 'darkcyan',
-  onComplete(){
-    body.play()
-  }
-}).play()
+const UNICORN_OFFSET_Y = -10
 
 class Body extends mojs.CustomShape {
   getShape() { return `<path
@@ -30,6 +22,7 @@ class Body extends mojs.CustomShape {
          67.00,29.75 65.88,41.31 61.94,43.06 Z
        M 92.06,52.50" />`}
 }
+
 
 class Hair extends mojs.CustomShape {
   getShape() { return `<path
@@ -72,37 +65,43 @@ mojs.addShape('hair', Hair)
 mojs.addShape('tail', Tail)
 mojs.addShape('horn', Horn)
 
+
 const horn = new mojs.Shape({
   shape: 'horn',
   fill: 'aquamarine',
   radius: 200,
   duration: 1500,
-  y: { 100: 0 },
+  y: { [100 + UNICORN_OFFSET_Y]: UNICORN_OFFSET_Y },
   x: { '-40': 0 }
 })
 
 const body = new mojs.Shape({
   shape: 'body',
-  fill: 'none',
   stroke: 'white',
-  radius: 200,
+  fill: 'none',
   duration: 2000,
-  strokeDasharray: '220',
-  strokeDashoffset: { '-220': 0, easing: 'linear.none' }
+  strokeDashoffset: { '-220' : '0', easing: 'linear.none' },
+  strokeDasharray: 220,
+  isShowStart: true,
+  radius: 200,
+  top: '50%',
+  y: UNICORN_OFFSET_Y,
 }).then({
-  fill: { 'none': 'white' },
-  duration: 1000,
+  fill: { 'none': 'white'},
+  duration: 500,
   onComplete() {
+    eye.play()
     horse.play()
-  }
-})
+  },
+}).play()
 
 const eye = new mojs.Shape({
   shape: 'circle',
   fill: 'black',
   radius: 13,
+  duration: 500,
   x: 115,
-  y: -60,
+  y: -60 + UNICORN_OFFSET_Y,
   radiusY: { 0: 13 },
   onComplete() {
     eye.tune({
@@ -115,25 +114,26 @@ const eye = new mojs.Shape({
       radiusY: { 1: 13 },
     })
     eye.replay()
-  }
+  },
 })
 
 const hair = new mojs.Shape({
   shape: 'hair',
-  fill: 'lavender',
+  fill: 'lavenderblush',
   radius: 200,
-  y: { '-800' : 0 },
   duration: 1000,
+  y: { '-800' : UNICORN_OFFSET_Y },
   easing: mojs.easing.bounce.out,
 })
 
 const tail = new mojs.Shape({
   shape: 'tail',
-  duration: 1000,
+  fill: 'pink',
   radius: 200,
+  duration: 1000,
+  y: -10,
   x: { '-800': 0 },
   easing: mojs.easing.bounce.out,
-  fill: 'pink'
 })
 
 const horse = new mojs.Timeline({
@@ -143,22 +143,20 @@ const horse = new mojs.Timeline({
 })
 .add(hair)
 .add(tail)
-.add(eye)
 
 const burst = new mojs.Burst({
-  left: 0,
-  top: 0,
-  radius: { 4: 19 },
-  angle: 45,
+  left: 0, top: 0,
+  radius:   { 4: 19 },
+  angle:    45,
   children: {
-    shape: 'line',
-    radius: 3,
-    scale: 1,
-    stroke: '#FD7932',
+    shape:        'line',
+    radius:       3,
+    scale:        1,
+    stroke:       '#FD7932',
     strokeDasharray: '100%',
     strokeDashoffset: { '-100%' : '100%' },
-    duration: 700,
-    easing: 'quad.out',
+    duration:     700,
+    easing:       'quad.out',
   }
 });
 
