@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "external-helpers",
+    "transform-class-properties",
+    "transform-export-extensions"
+  ],
+  "presets": [
+    [
+        "es2015",
+        {
+          "modules": false
+        }
+    ]
+  ]
+}
