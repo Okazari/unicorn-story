@@ -1,1 +1,1 @@
-export default from './horn'
+export { default } from './horn'
