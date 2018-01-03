@@ -1,1 +1,1 @@
-export default from './burst'
+export { default } from './burst'

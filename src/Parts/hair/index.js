@@ -1,1 +1,1 @@
-export default from './hair'
+export { default } from './hair'

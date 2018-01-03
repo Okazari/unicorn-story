@@ -1,1 +1,1 @@
-export default from './backgroundCircle'
+export { default } from './backgroundCircle'

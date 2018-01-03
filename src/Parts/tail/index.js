@@ -1,1 +1,1 @@
-export default from './tail'
+export { default } from './tail'
