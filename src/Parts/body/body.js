@@ -1,16 +1,27 @@
-import shape from './shape'
+import { chain, tween, styler } from 'popmotion'
 
-const body = new mojs.Shape({
-  shape: shape,
-  fill: 'none',
-  stroke: 'white',
-  radius: 200,
+const body = document.getElementById('body');
+const bodyStyler = styler(body);
+const bodyLength = body.getTotalLength()
+
+bodyStyler.set('stroke-dasharray', bodyLength)
+
+const drawBody = tween({
+  from: { strokeDashoffset: -bodyLength },
+  to: { strokeDashoffset: 0 },
   duration: 2000,
-  strokeDasharray: '220',
-  strokeDashoffset: { '-220': 0, easing: 'linear.none' }
-}).then({
-  fill: { 'none': 'white' },
+})
+
+const fillBody = tween({
+  from: { fillOpacity: 0 },
+  to: { fillOpacity: 1 },
   duration: 1000,
 })
 
-export default body
+const animateBody = chain(
+  drawBody,
+  fillBody
+)
+.start(bodyStyler.set);
+
+export default animateBody

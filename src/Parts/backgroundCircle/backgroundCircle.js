@@ -1,10 +1,13 @@
-import { Shape } from 'mo-js'
+import { tween, styler } from 'popmotion'
 
-const backgroundCircle = new Shape({
-  shape:'circle',
-  radius: {0: 300},
+const backgroundCircle = document.getElementById('backgroundCircle')
+const backgroundCircleStyler = styler(backgroundCircle)
+
+const animateBackground = tween({
+  from: { r: 0 },
+  to: { r: 100 },
   duration: 1000,
-  fill: 'darkcyan',
 })
+.start(backgroundCircleStyler.set)
 
-export default backgroundCircle
+export default animateBackground
