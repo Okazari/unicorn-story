@@ -1,12 +1,13 @@
-import shape from './shape'
+import { tween, styler } from 'popmotion'
 
-const horn = new mojs.Shape({
-  shape: shape,
-  fill: 'aquamarine',
-  radius: 200,
+const horn = document.getElementById('horn');
+const hornStyler = styler(horn);
+
+const animateHorn = tween({
+  from: { x: -40, y: 30 },
+  to: { x: 0, y: 0 },
   duration: 1500,
-  y: { 100: 0 },
-  x: { '-40': 0 }
 })
+.start(hornStyler.set)
 
-export default horn
+export default animateHorn

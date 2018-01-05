@@ -1,12 +1,13 @@
-import shape from './shape'
+import { tween, styler } from 'popmotion'
 
-const hair = new mojs.Shape({
-  shape: shape,
-  fill: 'lavender',
-  radius: 200,
-  y: { '-800' : 0 },
+const hair = document.getElementById('hair');
+const hairStyler = styler(hair);
+
+const animateHair = tween({
+  from: { y: -800 },
+  to: { y: 0 },
   duration: 1000,
-  easing: mojs.easing.bounce.out,
 })
+.start(hairStyler.set)
 
-export default hair
+export default animateHair

@@ -1,12 +1,13 @@
-import shape from './shape'
+import { tween, styler } from 'popmotion'
 
-const tail = new mojs.Shape({
-  shape: shape,
+const tail = document.getElementById('tail');
+const tailStyler = styler(tail);
+
+const animateTail = tween({
+  from: { x: -800 },
+  to: { x: 0 },
   duration: 1000,
-  radius: 200,
-  x: { '-800': 0 },
-  easing: mojs.easing.bounce.out,
-  fill: 'pink'
 })
+.start(tailStyler.set)
 
-export default tail
+export default animateTail
