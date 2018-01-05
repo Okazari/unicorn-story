@@ -1,3 +1,5 @@
+import { chain } from 'popmotion'
+
 import {
   backgroundCircle,
   body,
@@ -5,3 +7,11 @@ import {
   tail,
   horn
 } from './Parts'
+
+chain(
+  backgroundCircle,
+  body,
+  hair,
+  tail,
+  horn
+).start()

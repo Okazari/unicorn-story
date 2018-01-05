@@ -1,13 +1,11 @@
-import { chain, tween, styler } from 'popmotion'
+import { chain, tween, styler, action } from 'popmotion'
 
-const body = document.getElementById('body');
-const bodyStyler = styler(body);
-const bodyLength = body.getTotalLength()
-
-bodyStyler.set('stroke-dasharray', bodyLength)
+const bodyPath = document.getElementById('body');
+const bodyStyler = styler(bodyPath);
+bodyStyler.set('opacity', 0)
 
 const drawBody = tween({
-  from: { strokeDashoffset: -bodyLength },
+  from: { strokeDashoffset: -220, opacity: 1 },
   to: { strokeDashoffset: 0 },
   duration: 2000,
 })
@@ -22,6 +20,5 @@ const animateBody = chain(
   drawBody,
   fillBody
 )
-.start(bodyStyler.set);
 
-export default animateBody
+export default action(({ complete }) => animateBody.start({ update: bodyStyler.set, complete }))
