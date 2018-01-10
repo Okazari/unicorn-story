@@ -4,25 +4,41 @@
     <meta charset="utf-8">
     <title>MoveZen</title>
     <link rel="icon" type="image/png" href="http://zenika.com/assets/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-      <circle id="backgroundCircle" fill="darkcyan" cx="100" cy="100"/>
-      <path
-        id="horn"
-        fill="aquamarine"
-        d="M 90.65,15.04
-         C 91.61,15.65 84.09,30.17 83.74,30.22
+    <div class="container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <circle id="backgroundCircle" fill="darkcyan" cx="100" cy="100"/>
+        <svg transform="translate(50,50)" viewBox="-10 -10 125 125">
+          <path
+          id="horn"
+          fill="aquamarine"
+          d="M 90.65,15.04
+          C 91.61,15.65 84.09,30.17 83.74,30.22
           81.52,30.43 79.30,29.26 78.74,28.09
           78.78,28.00 89.70,14.43 90.65,15.04 Z"
-      />
-      <path
-        id="body"
-        stroke="white"
-        fill="white"
-        fill-opacity="0"
-        stroke-dasharray="220"
-        d="M 61.94,43.06
+          />
+          <path
+          id="tail"
+          fill="pink"
+          d="M 7.09,62.65
+          C 9.96,65.65 12.09,64.26 12.57,63.57
+          13.74,62.78 11.70,53.00 14.70,48.65
+          17.70,44.30 21.65,42.43 24.74,42.43
+          27.83,42.43 31.57,43.83 31.78,47.39
+          30.83,47.96 27.78,52.52 27.52,55.65
+          27.52,55.65 23.30,54.87 23.43,59.65
+          23.57,64.43 22.22,71.48 16.26,72.65
+          10.30,73.83 4.83,67.52 7.09,62.65 Z"
+          />
+          <path
+          id="body"
+          stroke="white"
+          fill="white"
+          fill-opacity="0"
+          stroke-dasharray="220"
+          d="M 61.94,43.06
           C 57.81,45.06 50.02,42.63 43.19,43.25
           36.35,43.87 32.38,45.50 29.56,50.25
           23.94,59.56 30.12,69.62 30.19,69.62
@@ -41,11 +57,11 @@
           92.00,31.83 82.94,28.81 75.06,29.06
           67.00,29.75 65.88,41.31 61.94,43.06 Z
           M 92.06,52.50"
-      />
-      <path
-        id="hair"
-        fill="lavender"
-        d="M 79.50,20.75
+          />
+          <path
+          id="hair"
+          fill="lavender"
+          d="M 79.50,20.75
           C 79.50,20.75 83.19,25.56 81.88,28.25
           80.56,30.94 74.73,30.32 72.48,29.70
           68.35,32.20 70.50,41.06 69.31,43.00
@@ -56,22 +72,11 @@
           60.50,34.00 65.88,26.19 70.25,24.25
           74.62,22.31 76.75,26.12 78.62,25.56
           80.50,25.00 79.50,20.75 79.50,20.75 Z"
-      />
-      <path
-        id="tail"
-        fill="pink"
-        d="M 7.09,62.65
-         C 9.96,65.65 12.09,64.26 12.57,63.57
-          13.74,62.78 11.70,53.00 14.70,48.65
-          17.70,44.30 21.65,42.43 24.74,42.43
-          27.83,42.43 31.57,43.83 31.78,47.39
-          30.83,47.96 27.78,52.52 27.52,55.65
-          27.52,55.65 23.30,54.87 23.43,59.65
-          23.57,64.43 22.22,71.48 16.26,72.65
-          10.30,73.83 4.83,67.52 7.09,62.65 Z"
-      />
-      <circle id="eye" fill="black" r="3" cx="80" cy="35"/>
-    </svg>
+          />
+          <circle id="eye" fill="black" r="3" cx="80" cy="35"/>
+        </svg>
+      </svg>
       <script type="text/javascript" src="./movezen.js"></script>
+    </div>
   </body>
 </html>
