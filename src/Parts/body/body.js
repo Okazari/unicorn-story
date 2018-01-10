@@ -5,15 +5,15 @@ const bodyStyler = styler(bodyPath);
 bodyStyler.set('opacity', 0)
 
 const drawBody = tween({
-  from: { strokeDashoffset: -220, opacity: 1 },
-  to: { strokeDashoffset: 0 },
+  from: { pathLength: 0, opacity: 1 },
+  to: { pathLength: 100 },
   duration: 2000,
 })
 
 const fillBody = tween({
   from: { fillOpacity: 0 },
   to: { fillOpacity: 1 },
-  duration: 1000,
+  duration: 500,
 })
 
 const animateBody = chain(
