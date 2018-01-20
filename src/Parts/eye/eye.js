@@ -1,7 +1,16 @@
 import { tween, styler, action, easing } from 'popmotion'
 
-const eye = document.getElementById('eye');
+const mainSvg = document.getElementById('main-svg')
+const subSvg = mainSvg.getElementById('drawing')
+const eye = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+subSvg.appendChild(eye)
+
 const eyeStyler = styler(eye);
+eyeStyler.set('opacity', 0)
+eyeStyler.set('fill', 'black')
+eyeStyler.set('r', 3)
+eyeStyler.set('x', 80)
+eyeStyler.set('y', 35)
 
 const showEye = tween({
   from: { scaleY: 0, opacity: 1 },
