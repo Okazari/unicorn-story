@@ -2,7 +2,6 @@ import { tween, styler, action, easing } from 'popmotion'
 
 const eye = document.getElementById('eye');
 const eyeStyler = styler(eye);
-eyeStyler.set('opacity', 0)
 
 const showEye = tween({
   from: { scaleY: 0, opacity: 1 },

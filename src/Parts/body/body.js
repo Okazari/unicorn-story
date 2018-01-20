@@ -2,8 +2,12 @@ import { chain, tween, styler, action, easing } from 'popmotion'
 
 const bodyPath = document.getElementById('body');
 const bodyStyler = styler(bodyPath);
-bodyStyler.set('opacity', 0)
+
 bodyStyler.set('strokeWidth', 0.5)
+bodyStyler.set('stroke', 'white')
+bodyStyler.set('fill', 'white')
+bodyStyler.set('fillOpacity', 0)
+
 const drawBody = tween({
   from: { pathLength: 0, opacity: 1 },
   to: { pathLength: 100 },

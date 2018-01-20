@@ -2,9 +2,7 @@ import { tween, styler, action, easing } from 'popmotion'
 
 const hair = document.getElementById('hair');
 const hairStyler = styler(hair);
-
-hairStyler.set('opacity', 0)
-
+hairStyler.set('fill', 'lavender')
 const animateHair = tween({
   from: { y: -100, opacity: 1 },
   to: { y: 0 },
