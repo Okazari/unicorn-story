@@ -10,6 +10,7 @@ subSvg.appendChild(hair)
 const hairStyler = styler(hair);
 hairStyler.set({
   /* START: Fill Here */
+  fill: 'lavender',
   /* END: Fill Here */
   opacity: 0,
   d: path,
@@ -17,6 +18,10 @@ hairStyler.set({
 
 const animateHair = tween({
   /* START: Fill Here */
+  from: { y: -100, opacity: 1 },
+  to: { y: 0 },
+  duration: 500,
+  ease: easing.backOut,
   /* END: Fill Here */
 })
 

@@ -10,6 +10,7 @@ subSvg.appendChild(horn)
 const hornStyler = styler(horn);
 hornStyler.set({
   /* START: Fill Here */
+  fill: 'aquamarine',
   /* END: Fill Here */
   opacity: 0,
   d: path,
@@ -17,6 +18,13 @@ hornStyler.set({
 
 const animateHorn = tween({
   /* START: Fill Here */
+  from: {
+    x: -20,
+    y: 30,
+    opacity: 1,
+  },
+  to: { x: 0, y: 0 },
+  duration: 1000,
   /* END: Fill Here */
 })
 
