@@ -1,3 +1,4 @@
+/******* eye.js *******/
 import { tween, styler, action, easing } from 'popmotion'
 
 const mainSvg = document.getElementById('main-svg')
@@ -29,11 +30,29 @@ const blinkEye = tween({
   duration: 50,
   flip: 1,
 })
+/* END: Fill Here */
 
+/* START: Update Here */
 export default action(({ complete }) => {
   showEye.start({ update: eyeStyler.set, complete: () => {
     complete()
     setInterval(() => blinkEye.start({ update: eyeStyler.set }), 2000)
   }})
 })
-/* END: Fill Here */
+/* END: Update Here */
+/************************/
+
+/******* index.js *******/
+import { backgroundCircle, body, hair, tail, eye } from './Parts'
+import { chain, composite } from 'popmotion'
+
+chain(
+  backgroundCircle,
+  body,
+  composite({
+    hair,
+    tail,
+  }),
+  eye,
+).start()
+/************************/

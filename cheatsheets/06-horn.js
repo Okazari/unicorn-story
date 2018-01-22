@@ -1,3 +1,4 @@
+/******* horn.js *******/
 import { tween, styler, action } from 'popmotion'
 
 const path = 'M 90.65,15.04 C 91.61,15.65 84.09,30.17 83.74,30.22 81.52,30.43 79.30,29.26 78.74,28.09 78.78,28.00 89.70,14.43 90.65,15.04 Z'
@@ -29,3 +30,20 @@ const animateHorn = tween({
 })
 
 export default action(({ complete }) => animateHorn.start({ update: hornStyler.set, complete }))
+/************************/
+
+/******* index.js *******/
+import { backgroundCircle, body, hair, tail, eye, horn } from './Parts'
+import { chain, composite } from 'popmotion'
+
+chain(
+  backgroundCircle,
+  body,
+  composite({
+    hair,
+    tail,
+  }),
+  eye,
+  horn,
+).start()
+/************************/
