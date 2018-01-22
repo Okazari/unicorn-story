@@ -1,22 +1,13 @@
-import { chain } from 'popmotion'
-import { tween, styler, composite } from 'popmotion'
-
-import {
-  backgroundCircle,
-  body,
-  hair,
-  tail,
-  horn,
-  eye
-} from './Parts'
+import { backgroundCircle, body, hair, tail, eye, horn } from './Parts'
+import { chain, composite } from 'popmotion'
 
 chain(
   backgroundCircle,
   body,
-  eye,
   composite({
     hair,
     tail,
   }),
-  horn
+  eye,
+  horn,
 ).start()

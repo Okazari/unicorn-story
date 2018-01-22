@@ -1,4 +1,4 @@
-/* START: Fill Here */
+/******* backgroundCircle.js *******/
 import { styler, tween, action } from 'popmotion'
 
 const mainSvg = document.getElementById('main-svg')
@@ -19,5 +19,11 @@ const animateBackground = tween({
   duration: 500,
 })
 
-export default action(({ complete }) => animateBackground.start({ update: backgroundCircleStyler.set, complete }))
-/* END: Fill Here */
+export default action(() => animateBackground.start({ update: backgroundCircleStyler.set }))
+/***********************************/
+
+/******* index.js *******/
+import { backgroundCircle } from './Parts'
+
+backgroundCircle.start()
+/************************/
