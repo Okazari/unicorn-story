@@ -9,31 +9,17 @@ const eyeStyler = styler(eye);
 eyeStyler.set({
   opacity: 0,
   /* START: Fill Here */
-  fill: 'black',
-  r: 3,
-  x: 80,
-  y: 35,
+  /* END: Fill Here */
+})
+
+const showEye = tween({
+  /* START: Fill Here */
   /* END: Fill Here */
 })
 
 /* START: Fill Here */
-const showEye = tween({
-  from: { scaleY: 0, opacity: 1 },
-  to: { scaleY: 1 },
-  duration: 200,
-})
-
-const blinkEye = tween({
-  from: { scaleY: 1 },
-  to: { scaleY: 0.1 },
-  duration: 50,
-  flip: 1,
-})
-
-export default action(({ complete }) => {
-  showEye.start({ update: eyeStyler.set, complete: () => {
-    complete()
-    setInterval(() => blinkEye.start({ update: eyeStyler.set }), 2000)
-  }})
-})
 /* END: Fill Here */
+
+/* START: Update Here */
+export default action(({ complete }) => showEye.start({ update: eyeStyler.set, complete }))
+/* END: Update Here */

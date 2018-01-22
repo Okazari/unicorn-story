@@ -1,13 +1,4 @@
-import { backgroundCircle, body, hair, tail, eye, horn } from './Parts'
-import { chain, composite } from 'popmotion'
+import { backgroundCircle } from './Parts'
 
-chain(
-  backgroundCircle,
-  body,
-  composite({
-    hair,
-    tail,
-  }),
-  eye,
-  horn,
-).start()
+/* START: Fill Here */
+/* END: Fill Here */

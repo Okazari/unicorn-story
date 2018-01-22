@@ -9,34 +9,8 @@ subSvg.appendChild(bodyPath)
 
 const bodyStyler = styler(bodyPath);
 /* START: Fill Here */
-bodyPath.setAttribute('stroke-dasharray', '220')
-bodyPath.setAttribute('stroke-dashoffset', '220')
-bodyStyler.set({
-  opacity: 0,
-  d: path,
-  strokeWidth: .5,
-  stroke: 'white',
-  fill: 'white',
-  fillOpacity: 0,
-})
-
-
-const drawBody = tween({
-  from: { 'stroke-dashoffset': 220, opacity: 1 },
-  to: { 'stroke-dashoffset': 440 },
-  duration: 2000,
-})
-
-const fillBody = tween({
-  from: { fillOpacity: 0 },
-  to: { fillOpacity: 1 },
-  duration: 500,
-})
-
-const animateBody = chain(
-  drawBody,
-  fillBody
-)
 /* END: Fill Here */
 
-export default action(({ complete }) => animateBody.start({ update: bodyStyler.set, complete }))
+/* START: Update Here */
+export default action(({ complete }) => {})
+/* END: Update Here */
