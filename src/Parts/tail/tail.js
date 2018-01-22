@@ -10,7 +10,6 @@ subSvg.appendChild(tail)
 const tailStyler = styler(tail);
 tailStyler.set({
   /* START: Fill Here */
-  fill: 'pink',
   /* END: Fill Here */
   opacity: 0,
   d: path,
@@ -18,10 +17,6 @@ tailStyler.set({
 
 const animateTail = tween({
   /* START: Fill Here */
-  from: { x: -100, opacity: 1 },
-  to: { x: 0 },
-  duration: 500,
-  ease: easing.backOut
   /* END: Fill Here */
 })
 
