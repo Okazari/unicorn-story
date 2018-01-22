@@ -44,7 +44,10 @@ const animateBody = chain(
 )
 /* END: Fill Here */
 
+/* START: Update Here */
 export default action(({ complete }) => animateBody.start({ update: bodyStyler.set, complete }))
+/* END: Update Here */
+
 /********************/
 
 /******* index.js *******/

@@ -17,13 +17,15 @@ eyeStyler.set({
   /* END: Fill Here */
 })
 
-/* START: Fill Here */
 const showEye = tween({
+  /* START: Fill Here */
   from: { scaleY: 0, opacity: 1 },
   to: { scaleY: 1 },
   duration: 200,
+  /* END: Fill Here */
 })
 
+/* START: Fill Here */
 const blinkEye = tween({
   from: { scaleY: 1 },
   to: { scaleY: 0.1 },
