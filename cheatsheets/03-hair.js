@@ -12,8 +12,8 @@ const hairStyler = styler(hair);
 hairStyler.set({
   /* START: Fill Here */
   fill: 'lavender',
-  opacity: 0,
   /* END: Fill Here */
+  opacity: 0,
   d: path,
 })
 
