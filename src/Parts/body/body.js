@@ -11,6 +11,9 @@ const bodyStyler = styler(bodyPath);
 /* START: Fill Here */
 /* END: Fill Here */
 
-/* START: Update Here */
-export default action(({ complete }) => {})
-/* END: Update Here */
+const animateBody = tween({
+  /* START: Fill Here */
+  /* END: Fill Here */
+})
+
+export default action(({ complete }) => animateBody.start({ update: bodyStyler.set, complete }))
