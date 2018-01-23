@@ -15,8 +15,8 @@ eyeStyler.set({
 })
 
 const showEye = tween({
-  from: { ry: 3, opacity: 1 },
-  to: { ry: 0 },
+  from: { ry: 0, opacity: 1 },
+  to: { ry: 3 },
   duration: 200,
 })
 
