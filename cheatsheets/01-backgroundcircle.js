@@ -2,8 +2,9 @@
 /* START: Fill Here */
 import { styler, tween, action } from 'popmotion'
 
+const svgNS = 'http://www.w3.org/2000/svg'
 const mainSvg = document.getElementById('main-svg')
-const backgroundCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+const backgroundCircle = document.createElementNS(svgNS, 'circle')
 mainSvg.prepend(backgroundCircle)
 
 const backgroundCircleStyler = styler(backgroundCircle)
