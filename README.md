@@ -6,7 +6,7 @@ What can you do here ?
 - Find explanations on each step 🎓
 - Contribute opening issues / PR 🙌
 
-> Final application link: [https://okazari.github.io/moveZen](https://okazari.github.io/moveZen)
+> Final application link: [https://okazari.github.io/unicorn-story/public/](https://okazari.github.io/unicorn-story/public/)
 
 ## Who
  - Benjamin PLOUZENNEC [[Twitter](https://twitter.com/OkazariBzh) | [Github](https://github.com/Okazari)]
